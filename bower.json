@@ -1,0 +1,16 @@
+{
+  "name": "car-registry",
+  "version": "1.0.0",
+  "homepage": "https://github.com/selbekk/car-registry",
+  "authors": [
+    "selbekk <kristofer.selbekk@bekk.no>"
+  ],
+  "description": "A car registry website",
+  "keywords": [
+    "car",
+    "auto",
+    "registry"
+  ],
+  "license": "MIT",
+  "private": true
+}
