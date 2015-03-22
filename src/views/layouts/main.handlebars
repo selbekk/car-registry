@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8"/>
+<head>
+    <meta charset="UTF-8"/>
 
-        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="/css/styles.css" />
-    </head>
-    <body>
-        <div id="site-container">
-            {{{body}}}
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+<div id="site-container">
+    <header id="main-header">
+        <div class="container">
+
+            <nav id="main-nav">
+                <ul class="nav nav-pills nav-center">
+                    <li><a href="#" title="Register"><span class="glyphicon glyphicon-pencil"></span></a></li>
+                    <li><a href="#" title="Random"><span class="glyphicon glyphicon-random"></span></a></li>
+                    <li><a href="#" title="Search"><span class="glyphicon glyphicon-search"></span></a></li>
+                </ul>
+            </nav>
+            <h1 class="site-title">Car registry</h1>
         </div>
-        <script src="/js/scripts.js"></script>
-    </body>
+    </header>
+    <div class="container-fluid">
+        {{{body}}}
+    </div>
+</div>
+<script src="/js/scripts.js"></script>
+</body>
 </html>
