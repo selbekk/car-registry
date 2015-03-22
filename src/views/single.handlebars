@@ -1,0 +1,23 @@
+<div class="container car-details">
+    <div class="row gallery">
+        <div class="current-image"></div>
+        <div class="thumbnails"></div>
+    </div>
+    <div class="row content">
+        <div class="col-sm-8">
+            <h2>{{year}} {{model}}</h2>
+            <p>{{description}}</p>
+        </div>
+        <aside class="col-sm-4">
+            <h3>Colors</h3>
+            <div class="color exterior-color" style="background-color: {{exteriorColor.hex}}">{{exteriorColor.name}}</div>
+            <div class="color interior-color" style="background-color: {{interiorColor.hex}}">{{interiorColor.name}}</div>
+            <h3>Options</h3>
+            <ul class="options">
+                {{#each options}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </aside>
+    </div>
+</div>
