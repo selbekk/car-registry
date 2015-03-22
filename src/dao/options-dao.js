@@ -1,24 +1,47 @@
 var _ = require('underscore');
 var db = require('./db');
 
+var settingsCache;
+function cache(settings) {
+    settingsCache = settings;
+}
+
 module.exports = {
-    getDefaults: function(callback) {
+    getSettings: function(callback) {
+        if(settingsCache) {
+            return callback(settingsCache);
+        }
+
         db.getConnection(function(connection) {
-            connection.query('SELECT type, setting FROM carsettings  ORDER BY setting', function(err, rows) {
-                if(err) {
-                    throw err;
+            var sql = 'SELECT * FROM colors ORDER BY name';
+            connection.query(sql, function(colorsErr, colorRows) {
+                if(colorsErr) {
+                    throw colorsErr;
                 }
-
-                var settings = {};
-
-                _.each(rows, function(row) {
-                    if(!settings[row.type]) {
-                        settings[row.type] = [];
+                var interiorColors = [];
+                var exteriorColors = [];
+                _.each(colorRows, function(color) {
+                    if(color.type === 'exterior') {
+                        exteriorColors.push(color);
                     }
-                    settings[row.type].push(row.setting);
+                    else {
+                        interiorColors.push(color);
+                    }
                 });
+                var settings = {
+                    interiorColors: interiorColors,
+                    exteriorColors: exteriorColors
+                };
 
-                callback(settings);
+                connection.query('SELECT * FROM models ORDER BY name', function(modelsErr, modelsRows) {
+                    if(modelsErr) {
+                        throw modelsErr;
+                    }
+
+                    settings.models = modelsRows;
+                    cache(settings);
+                    callback(settings);
+                });
             });
         });
     }

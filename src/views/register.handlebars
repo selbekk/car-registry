@@ -20,7 +20,7 @@
                 <select class="form-control" name="model">
                     <option value="" disabled selected>Which model is it?</option>
                     {{#each models}}
-                        <option>{{this}}</option>
+                        <option value="{{id}}">{{name}}</option>
                     {{/each}}
                 </select>
             {{else}}
@@ -33,7 +33,7 @@
                 <select class="form-control" name="exteriorColor">
                     <option value="" disabled selected>What's the exterior color?</option>
                     {{#each exteriorColors}}
-                        <option>{{this}}</option>
+                        <option>{{name}} ({{code}})</option>
                     {{/each}}
                 </select>
             {{else}}
@@ -42,11 +42,11 @@
         </div>
 
         <div class="form-group">
-            {{#if interiorColors}}
+            {{#if interiorColors }}
                 <select class="form-control" name="interiorColor">
                     <option value="" disabled selected>What's the interior color?</option>
                     {{#each interiorColors}}
-                        <option>{{this}}</option>
+                        <option>{{name}} ({{code}})</option>
                     {{/each}}
                 </select>
             {{else}}
