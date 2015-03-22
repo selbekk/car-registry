@@ -31,3 +31,6 @@ This application is built with iojs (node), bower and mysql. Hopefully Gulp in t
 
 Haven't made this yet, but will come soon.
 
+### Step 4: Start the app
+	
+	npm start

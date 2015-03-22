@@ -2,9 +2,9 @@
   "name": "car-registry",
   "version": "1.0.0",
   "description": "A car registry app you can host yourself",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  	"start": "cd src && iojs app.js"
   },
   "repository": {
     "type": "git",
