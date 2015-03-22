@@ -12,5 +12,8 @@
     "registry"
   ],
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.3.4"
+  }
 }
