@@ -33,7 +33,7 @@
                 <select class="form-control" name="exteriorColor">
                     <option value="" disabled selected>What's the exterior color?</option>
                     {{#each exteriorColors}}
-                        <option value="{{code}}">{{name}}</option>
+                        <option>{{this}}</option>
                     {{/each}}
                 </select>
             {{else}}
@@ -46,7 +46,7 @@
                 <select class="form-control" name="interiorColor">
                     <option value="" disabled selected>What's the interior color?</option>
                     {{#each interiorColors}}
-                        <option value="{{code}}">{{name}}</option>
+                        <option>{{this}}</option>
                     {{/each}}
                 </select>
             {{else}}
