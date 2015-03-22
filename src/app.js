@@ -2,6 +2,7 @@ var express = require('express'),
     exphbs = require('express-handlebars');
 
 var carDao = require('./dao/car-dao');
+var optionsDao = require('./dao/options-dao');
 
 var app = express();
 
@@ -14,6 +15,16 @@ app.get('/', function(req, res) {
     carDao.getRandomCar(function(car) {
         res.render('single', car);
     });
+});
+
+app.get('/register', function(req, res) {
+    optionsDao.getDefaults(function(defaults) {
+        res.render('register', defaults);
+    })
+});
+
+app.post('/register', function(req, res) {
+
 });
 
 app.listen(8000, function() {

@@ -1,0 +1,94 @@
+<div class="container">
+    <h2>Register your car</h2>
+    <p class="lead">Want to register your car? No problem! </p>
+    <form id="registration-form" method="post" action="/registration">
+        <div class="form-group">
+            {{#if years}}
+                <select class="form-control" name="year">
+                    <option value="" disabled selected>What's the model year?</option>
+                    {{#each years}}
+                        <option>{{this}}</option>
+                    {{/each}}
+                </select>
+            {{else}}
+                <input type="text" pattern="^199[4-8]$" name="year" class="form-control" placeholder="What's the model year?" required/>
+            {{/if}}
+        </div>
+
+        <div class="form-group">
+            {{#if models}}
+                <select class="form-control" name="model">
+                    <option value="" disabled selected>Which model is it?</option>
+                    {{#each models}}
+                        <option>{{this}}</option>
+                    {{/each}}
+                </select>
+            {{else}}
+                <input type="text" name="model" class="form-control" placeholder="Which model is it?" required/>
+            {{/if}}
+        </div>
+
+        <div class="form-group">
+            {{#if exteriorColors}}
+                <select class="form-control" name="exteriorColor">
+                    <option value="" disabled selected>What's the exterior color?</option>
+                    {{#each exteriorColors}}
+                        <option value="{{code}}">{{name}}</option>
+                    {{/each}}
+                </select>
+            {{else}}
+                <input type="text" name="exteriorColor" class="form-control" placeholder="What's the exterior color?" required/>
+            {{/if}}
+        </div>
+
+        <div class="form-group">
+            {{#if interiorColors}}
+                <select class="form-control" name="interiorColor">
+                    <option value="" disabled selected>What's the interior color?</option>
+                    {{#each interiorColors}}
+                        <option value="{{code}}">{{name}}</option>
+                    {{/each}}
+                </select>
+            {{else}}
+                <input type="text" name="interiorColors" class="form-control" placeholder="What's the interior color?" required/>
+            {{/if}}
+        </div>
+
+        <div class="form-group">
+        {{#if options}}
+            <h3>Pick your options</h3>
+            {{#each options}}
+                <label title="{{description}}">
+                    <input type="checkbox" class="form-control" name="option" value="{{id}}"/> {{label}}
+                </label>
+            {{/each}}
+        {{/if}}
+        </div>
+        <div class="form-group">
+            <h3>Describe your beauty!</h3>
+            <textarea class="form-control" name="description" rows="10" required></textarea>
+        </div>
+        <h3>A bit about you</h3>
+        <p>
+            In order to link cars with their owners, we need to know who you are.
+        </p>
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <input type="text" name="name" class="form-control" placeholder="What's your first name?" required />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <input type="email" name="email" class="form-control" placeholder="What's your e-mail" required />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <input type="text" name="country" class="form-control" placeholder="Which country do you live in?" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Register" />
+        </div>
+    </form>
+</div>
