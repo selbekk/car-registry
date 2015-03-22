@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/selbekk/car-registry/issues"
   },
-  "homepage": "https://github.com/selbekk/car-registry"
+  "homepage": "https://github.com/selbekk/car-registry",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
 }
