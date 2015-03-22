@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/selbekk/car-registry",
   "dependencies": {
-    "express": "^4.12.3"
+    "express": "^4.12.3",
+    "express-handlebars": "^1.2.2"
   }
 }
