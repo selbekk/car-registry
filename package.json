@@ -4,7 +4,7 @@
   "description": "A car registry app you can host yourself",
   "main": "src/app.js",
   "scripts": {
-  	"start": "cd src && iojs app.js"
+    "start": "cd src && iojs app.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   "dependencies": {
     "express": "^4.12.3",
     "express-handlebars": "^1.2.2",
+    "morgan": "^1.5.2",
     "mysql": "^2.5.5",
     "underscore": "^1.8.2"
   }

@@ -1,6 +1,7 @@
 var express = require('express');
 var exphbs = require('express-handlebars');
 var _ = require('underscore');
+var morgan = require('morgan');
 
 var carDao = require('./dao/car-dao');
 var optionsDao = require('./dao/options-dao');
@@ -10,7 +11,9 @@ var app = express();
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+app.use(morgan('tiny'));
 app.use(express.static('static'));
+
 
 app.get('/', function(req, res) {
     carDao.getRandomCar(function(car) {
@@ -33,8 +36,6 @@ app.get('/register', function(req, res) {
                 settings.years.push(parseInt(min) + i);
             }
         }
-
-
 
         res.render('register', settings);
     })
