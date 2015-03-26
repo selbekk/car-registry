@@ -1,18 +1,18 @@
 
-var log = require('./util/logger');
-var settingsService = require('./configuration/service');
+var log = require('../util/logger');
+var settingsService = require('../configuration/service');
 
 exports.showRegistrationForm = function(req, res, next) {
     log.debug('showing registration form');
 
-    settingsService.getRegistrationConfig(function(err, settings) {
-        if(err) {
+    settingsService.getRegistrationConfig
+        .then(function(settings) {
+            res.render('register', settings);
+        })
+        .catch(function(err) {
             log.error('error while fetching options for registration form', err);
             return next(err);
-        }
-
-        res.render('register', settings);
-    });
+        });
 };
 
 exports.register = function(req, res, next) {

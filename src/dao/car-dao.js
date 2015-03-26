@@ -1,5 +1,3 @@
-var pool = require('./db');
-
 function getRandomCar(callback) {
     var car = {
         id: 1,
@@ -22,12 +20,5 @@ function getRandomCar(callback) {
     };
     callback(car);
 }
-
-function create(car, callback) {
-    pool.getConnection(function(connection) {
-
-    });
-}
-
 
 module.exports = { getRandomCar: getRandomCar };
