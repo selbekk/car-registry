@@ -3,9 +3,9 @@ var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var _ = require('underscore');
 var morgan = require('morgan');
-
 var registrationRouter = require('./registration/router');
-    /// DELETE
+var log = require('./util/logger');
+
 var carDao = require('./dao/car-dao');
 
 var app = express();
@@ -25,16 +25,6 @@ app.get('/', function(req, res) {
     });
 });
 
-app.post('/register', function(req, res) {
-    carDao.create(req.body, function(err, entity) {
-        if(err) {
-            throw err;
-        }
-
-        return res.status(201).send(entity);
-    });
-});
-
 app.listen(8000, function() {
-    console.log('listening for connections at localhost:8000');
+    log.info('Server is up and running! Now listening for connections at localhost:8000...');
 });

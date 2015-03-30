@@ -20,7 +20,7 @@
                 <select class="form-control" name="model">
                     <option value="" disabled selected>Which model is it?</option>
                     {{#each models}}
-                        <option value="{{id}}">{{name}}</option>
+                        <option>{{this}}</option>
                     {{/each}}
                 </select>
             {{else}}

@@ -1,15 +1,10 @@
+var fs = require('fs');
 var Promise = require('promise');
 
-var dao = require('./dao');
+var readFile = Promise.denodeify(fs.readFile);
 
-function getRegistrationConfig(resolve, reject) {
-    return Promise.all([dao.getCarBasics])
-        .then(function(result) {
-            resolve({
-                basics: result[0]
-            });
-        })
-        .catch(reject);
+function getRegistrationConfig() {
+    return readFile(__dirname + '/settings.json', 'utf-8').then(JSON.parse);
 }
 
-exports.getRegistrationConfig = new Promise(getRegistrationConfig);
+exports.getRegistrationConfig = getRegistrationConfig;

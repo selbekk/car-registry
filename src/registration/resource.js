@@ -5,14 +5,11 @@ var settingsService = require('../configuration/service');
 exports.showRegistrationForm = function(req, res, next) {
     log.debug('showing registration form');
 
-    settingsService.getRegistrationConfig
-        .then(function(settings) {
-            res.render('register', settings);
+    settingsService.getRegistrationConfig()
+        .then(function(config) {
+            res.render('register', config);
         })
-        .catch(function(err) {
-            log.error('error while fetching options for registration form', err);
-            return next(err);
-        });
+        .catch(next);
 };
 
 exports.register = function(req, res, next) {
